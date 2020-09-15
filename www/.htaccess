@@ -11,6 +11,11 @@ RewriteEngine on
 #-------------------------------------
 # RE-ECRITURE DES ROUTES
 #-------------------------------------
+  # PAGE ABOUT
+  # PATTERN: /about
+  # URL: index.php?about
+  RewriteRule ^about$ index.php?about [L]
+
   # PAGE CONTACT
   # PATTERN: /contact
   # URL: index.php?contact

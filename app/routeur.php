@@ -8,7 +8,18 @@
   // PATTERN: /contact
   // CRTL: /
   // ACTION: /
-    if(isset($_GET['contact'])):
+    if(isset($_GET['about'])):
+      GLOBAL $content, $title;
+      $title = "About";
+      ob_start();
+        include_once '../app/vues/about/index.php';
+      $content = ob_get_clean();
+
+  // PAGE CONTACT
+  // PATTERN: /contact
+  // CRTL: /
+  // ACTION: /
+    elseif(isset($_GET['contact'])):
       GLOBAL $content, $title;
       $title = "Contact";
       ob_start();
