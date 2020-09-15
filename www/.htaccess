@@ -11,6 +11,11 @@ RewriteEngine on
 #-------------------------------------
 # RE-ECRITURE DES ROUTES
 #-------------------------------------
+  # PAGE CONTACT
+  # PATTERN: /contact
+  # URL: index.php?contact
+  RewriteRule ^contact$ index.php?contact [L]
+
   # DETAIL D'UN POST
   # PATTERN: /posts/id/slug.html
   # URL: index.php?postId=xxx
