@@ -11,11 +11,15 @@ RewriteEngine on
 #-------------------------------------
 # RE-ECRITURE DES ROUTES
 #-------------------------------------
+  # DETAIL D'UN POST
+  # PATTERN: /posts/id/slug.html
+  # URL: index.php?postId=xxx
+  RewriteRule ^posts\/([1-9][0-9]*)\/[a-z0-9][a-z0-9\-]*.html$ index.php?postId=$1 [L]
 
-# ROUTE LISTE DES POSTS
-# PATTERN: /posts
-# URL: index.php
-RewriteRule ^posts$ index.php [L]
+  # ROUTE LISTE DES POSTS
+  # PATTERN: /posts
+  # URL: index.php
+  RewriteRule ^posts$ index.php [L]
 
 
 # --------------------------------------------------

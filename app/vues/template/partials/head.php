@@ -8,6 +8,8 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
+<base href="http://localhost:8888/SCRIPT_SERVEUR/cleanblog/www/" target="_top">
+
 <title>Clean Blog - <?php echo $title; ?></title>
 
 <!-- Bootstrap core CSS -->

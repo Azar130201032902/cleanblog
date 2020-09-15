@@ -19,23 +19,8 @@
     <!-- CONTENU -->
     <main>
 
-        <!-- Page Header -->
-        <?php include_once '../app/vues/template/partials/header.php'; ?>
+      <?php echo $content; ?>
 
-        <!-- Textes -->
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-              <?php include_once '../app/vues/template/partials/addpost.php'; ?>
-
-              <!-- POSTS LIST -->
-              <?php echo $content; ?>
-              
-            </div>
-          </div>
-        </div>
-
-        <hr>
     </main>
 
     <!-- Footer -->
