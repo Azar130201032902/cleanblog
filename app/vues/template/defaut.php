@@ -20,6 +20,7 @@
     <main>
 
       <?php echo $content; ?>
+      <hr>
 
     </main>
 

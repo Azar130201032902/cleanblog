@@ -4,12 +4,16 @@
  */
 namespace App\Modeles\PostsModele;
 
-  function findAll(\PDO $connexion) {
+  function findAll(\PDO $connexion, int $limit = 10, int $offset = 0) {
     $sql = "SELECT *
             FROM posts
             ORDER BY datePublication DESC
-            LIMIT 4;";
-    $rs = $connexion->query($sql);
+            LIMIT :limit
+            OFFSET :offset;";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':limit', $limit, \PDO::PARAM_INT);
+    $rs->bindValue(':offset', $offset, \PDO::PARAM_INT);
+    $rs->execute();
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
   }
 

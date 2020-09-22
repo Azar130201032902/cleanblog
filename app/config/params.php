@@ -13,3 +13,4 @@
     // INITIALISATION DES ZONES DYNAMIQUES
       $content = '';
       $title = '';
+      $zoneScripts = '';

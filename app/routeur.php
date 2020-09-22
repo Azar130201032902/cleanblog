@@ -4,11 +4,23 @@
   ROUTEUR PRINCIPAL DE L'APPLICATION
 */
 
+// ROUTE AJAX ------------------------------------------------------------------
+
+  // CHARGEMENTS DES POSTS SUIVANTS
+  // PATTERN: /?older-posts
+  // CRTL: /
+  // ACTION: /
+    if(isset($_GET['ajax']) and $_GET['ajax'] ==='older-posts'):
+      include_once '../app/controleurs/postsControleur.php';
+      \App\Controleurs\PostsControleur\ajaxOlderAction($connexion, $_GET['offset']);
+
+// ROUTE STANDARD --------------------------------------------------------------
+
   // PAGE CONTACT
   // PATTERN: /contact
   // CRTL: /
   // ACTION: /
-    if(isset($_GET['about'])):
+    elseif(isset($_GET['about'])):
       GLOBAL $content, $title;
       $title = "About";
       ob_start();

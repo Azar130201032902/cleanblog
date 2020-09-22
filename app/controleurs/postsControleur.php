@@ -12,7 +12,8 @@ use App\Modeles\PostsModele;
     $posts = PostsModele\findAll($connexion);
 
    // et je le mets dans le $content
-   GLOBAL $content, $title;
+   GLOBAL $content, $title, $zoneScripts;
+   $zoneScripts .= '<script src="js/posts/index.js"></script>';
    $title = "Liste des posts";
     ob_start();
       include_once '../app/vues/posts/index.php';
@@ -29,4 +30,13 @@ use App\Modeles\PostsModele;
     ob_start();
       include_once '../app/vues/posts/show.php';
     $content = ob_get_clean();
+ }
+
+ // ACTION AJAX ----------------------------------------------------------------
+
+ function ajaxOlderAction(\PDO $connexion, int $offset) {
+   include_once '../app/modeles/postsModele.php';
+   $posts = PostsModele\findAll($connexion, 10, $offset);
+
+  include_once '../app/vues/posts/liste.php';
  }

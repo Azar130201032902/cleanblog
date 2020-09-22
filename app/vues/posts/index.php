@@ -35,23 +35,13 @@
       </div>
 
       <!-- POSTS LIST -->
-      <div class="post-preview">
-        <?php foreach ($posts as $post): ?>
-          <a href="posts/<?php echo $post['id']; ?>/<?php echo \slugify($post['titre']); ?>.html">
-            <h2 class="post-title">
-              <?php echo $post['titre']; ?>
-            </h2>
-            <h3 class="post-subtitle">
-              <?php echo $post['sousTitre']; ?>
-            </h3>
-          </a>
-          <p class="post-meta">Posted On <?php echo date_format(date_create($post['datePublication']), "F j, Y"); ?></p>
-          <hr>
-        <?php endforeach; ?>
+      <div id="liste-posts">
+        <?php include_once '../app/vues/posts/liste.php'; ?>
       </div>
+
       <!-- Pager -->
       <div class="clearfix">
-        <a class="btn btn-secondary float-right" href="#">Older Posts &rarr;</a>
+        <a class="btn btn-secondary float-right" id="older-posts" href="#">Older Posts &rarr;</a>
       </div>
     </div>
   </div>
