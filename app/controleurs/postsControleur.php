@@ -25,7 +25,8 @@ use App\Modeles\PostsModele;
     include_once '../app/modeles/postsModele.php';
     $post = PostsModele\findOneById($connexion, $id);
    // Je l'affiche dans la vue show
-    GLOBAL $content, $title;
+    GLOBAL $content, $title, $zoneScripts;
+    $zoneScripts = '<script src="js/posts/show.js"></script>';
     $title = $post['titre'];
     ob_start();
       include_once '../app/vues/posts/show.php';
@@ -39,4 +40,9 @@ use App\Modeles\PostsModele;
    $posts = PostsModele\findAll($connexion, 10, $offset);
 
   include_once '../app/vues/posts/liste.php';
+ }
+
+ function ajaxUpdateFieldAction(\PDO $connexion, int $id, string $field, string $value) {
+   include_once '../app/modeles/postsModele.php';
+   echo PostsModele\updateField($connexion, $id, $field, $value);
  }

@@ -27,9 +27,20 @@ namespace App\Modeles\PostsModele;
                    users.prenom
             FROM posts
             JOIN users ON posts.user = users.id
-            where posts.id = :id;";
+            WHERE posts.id = :id;";
     $rs = $connexion->prepare($sql);
     $rs->bindValue(':id', $id, \PDO::PARAM_INT);
     $rs->execute();
     return $rs->fetch(\PDO::FETCH_ASSOC);
+  }
+
+  function updateField(\PDO $connexion, int $id, string $field, string $value) {
+    $sql = "UPDATE posts
+            SET `$field` = :value
+            WHERE id = :id;";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
+    $rs->bindValue(':value', $value, \PDO::PARAM_STR);
+
+    return intval($rs->execute());
   }
